@@ -90,11 +90,12 @@ const ICON_LABELS = {
 
 // 默认登录账号（改密码后保存到 localStorage）
 const DEFAULT_USER = {
-    id: 'NaHS',
-    name: '硫氢化钠',
-    username: 'NaHS',
-    password: '12345678'
+    id: 'admin',
+    name: '管理员',
+    username: 'admin',
+    password: '123456'
 };
+
 
 function getUser() {
     try {
