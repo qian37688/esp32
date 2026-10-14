@@ -16,7 +16,9 @@ const DEFAULT_DATA_MODEL = {
         { id: 'led2', name: '报警灯', icon: 'fa-lightbulb', color: 'red', cloudKey: 'LED2', dataType: 'bool', step: 1 },
         { id: 'led1', name: '照明灯', icon: 'fa-lightbulb', color: 'yellow', cloudKey: 'LED1', dataType: 'bool', step: 1 },
         { id: 'buzzer', name: '蜂鸣器', icon: 'fa-bullhorn', color: 'orange', cloudKey: 'Buzzer', dataType: 'bool', step: 1 },
-        { id: 'led_brightness', name: 'LED亮度', icon: 'fa-sun', color: 'yellow', cloudKey: 'LedBrightness', dataType: 'int32', uiType: 'slider', min: 0, max: 100, step: 1, unit: '%' }
+        { id: 'led_brightness', name: 'LED亮度', icon: 'fa-sun', color: 'yellow', cloudKey: 'LedBrightness', dataType: 'int32', uiType: 'slider', min: 0, max: 100, step: 1, unit: '%' },
+        { id: 'temp_set', name: '设定温度', icon: 'fa-thermometer-half', color: 'orange', cloudKey: 'TempSet', dataType: 'int32', uiType: 'slider', min: 16, max: 30, step: 1, unit: '℃' },
+        { id: 'speed_set', name: '设定风速', icon: 'fa-wind', color: 'cyan', cloudKey: 'SpeedSet', dataType: 'int32', uiType: 'slider', min: 0, max: 100, step: 1, unit: '%' }
     ],
     videoData: []
 };
@@ -95,7 +97,6 @@ const DEFAULT_USER = {
     username: 'admin',
     password: '123456'
 };
-
 
 function getUser() {
     try {

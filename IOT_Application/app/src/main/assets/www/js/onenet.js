@@ -192,48 +192,24 @@ class OneNetService {
     static getMockData() {
         const mockData = { _isMock: true };
         const model = typeof getDataModel === 'function' ? getDataModel() : { sensors: [], controls: [], videoData: [] };
-        
-        model.sensors.forEach(s => {
-            if (s.dataType === 'string') {
-                mockData[s.id] = "模拟文本";
-            } else if (s.dataType === 'boolean') {
-                mockData[s.id] = Math.random() > 0.5;
-            } else {
-                const range = s.max - s.min;
-                const mid = s.min + range / 2;
-                const rawVal = mid + (Math.random() * (range * 0.2) - (range * 0.1));
-                const decimals = typeof getDecimals === 'function' ? getDecimals(s.dataType, s.step) : 1;
-                mockData[s.id] = Number(rawVal.toFixed(decimals));
-            }
-        });
-        model.controls.forEach(c => {
-            if (c.dataType === 'int32') {
-                mockData[c.id] = Math.floor(Math.random() * 100);
-            } else if (c.dataType === 'float' || c.dataType === 'double') {
-                const decimals = typeof getDecimals === 'function' ? getDecimals(c.dataType, c.step) : 2;
-                mockData[c.id] = Number((Math.random() * 100).toFixed(decimals));
-            } else if (c.dataType === 'string') {
-                mockData[c.id] = "mock_str";
-            } else {
-                mockData[c.id] = Math.random() > 0.5;
-            }
-        });
+
+        // 未登录云账号时返回固定演示值（不再随机跳变）
+        const fixedValue = (item) => {
+            if (item.dataType === 'string') return '模拟数据';
+            if (item.dataType === 'boolean') return false;
+            const min = item.min !== undefined ? item.min : 0;
+            const max = item.max !== undefined ? item.max : 100;
+            const mid = min + (max - min) / 2;
+            const decimals = typeof getDecimals === 'function' ? getDecimals(item.dataType, item.step) : (item.dataType === 'int32' ? 0 : 1);
+            return Number(mid.toFixed(decimals));
+        };
+
+        model.sensors.forEach(s => { mockData[s.id] = fixedValue(s); });
+        model.controls.forEach(c => { mockData[c.id] = fixedValue(c); });
         if (model.videoData) {
-            model.videoData.forEach(v => {
-                if (v.dataType === 'string') {
-                    mockData[v.id] = "模拟附加数据";
-                } else if (v.dataType === 'boolean') {
-                    mockData[v.id] = Math.random() > 0.5;
-                } else {
-                    const range = (v.max !== undefined && v.min !== undefined) ? v.max - v.min : 100;
-                    const min = v.min !== undefined ? v.min : 0;
-                    const rawVal = min + Math.random() * range;
-                    const decimals = typeof getDecimals === 'function' ? getDecimals(v.dataType, v.step) : 1;
-                    mockData[v.id] = Number(rawVal.toFixed(decimals));
-                }
-            });
+            model.videoData.forEach(v => { mockData[v.id] = fixedValue(v); });
         }
-        
+
         return mockData;
     }
 

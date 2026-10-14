@@ -1,6 +1,6 @@
 ﻿<div align="center">
   <img src="app/src/main/res/mipmap-xxxhdpi/ic_launcher_round.webp" alt="App Logo" width="100" />
-  <h1>📱 IoT Backend (Android 客户端)</h1>
+  <h1>📱 物联网后台 (Android 客户端)</h1>
   <p><b>基于 Android WebView + 纯前端构建的轻量级物联网设备监控与控制平台</b></p>
   
   [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
@@ -78,8 +78,8 @@ IOT/
 为了保护您的数据隐私，本 APP 在打包时不包含任何硬编码的云平台参数。**首次登录系统后，必须配置 OneNet 参数方可连接物理设备。**
 
 ### 1. 登录系统
-- **默认管理员账号**：NaHS
-- **默认密码**：12345678
+- **默认管理员账号**：admin
+- **默认密码**：123456
 
 ### 2. 获取 OneNet 平台参数
 请登录您的 [OneNet Studio 控制台](https://open.iot.10086.cn/studio)：
@@ -110,11 +110,11 @@ IOT/
 
 ---
 
-## 👨‍💻 关于作者与声明
+## 📄 版本与声明
 
-- **作者**：硫氢化钠 (NaHS)
-- **邮箱**：[nahs.lql@outlook.com](mailto:nahs.lql@outlook.com)
-- **B站主页**：[点击访问](https://space.bilibili.com/549713964?spm_id_from=333.1007.0.0)
+- **应用名称**：物联网后台
+- **版本**：1.0
+- **默认账号**：admin ｜ **默认密码**：123456（首次登录后请尽快修改）
 
 **🛡️ 免责声明**：
-本软件为开源物联网工具，仅供学习、研究与参考使用，开发者不承担任何因使用本项目（或其修改版本）引起的直接或间接责任。请妥善保管您的 OneNet Token 等鉴权信息，切勿泄露给第三方。
+本软件为开源物联网工具，仅供学习、研究与参考使用，开发者不承担任何因使用本项目（或其修改版本）引起的直接或间接责任。请妥善保管您的 OneNet Token 等鉴权信息，切勿泄露给第三方

@@ -40,8 +40,8 @@
             <div class="flex-1">
                 <div class="flex justify-between items-start">
                     <div>
-                        <h1 id="profileName" class="text-xl font-semibold">硫氢化钠</h1>
-                        <p class="text-tip text-xs mt-0.5">ID: <span id="profileId">NaHS</span></p>
+                        <h1 id="profileName" class="text-xl font-semibold">管理员</h1>
+                        <p class="text-tip text-xs mt-0.5">ID: <span id="profileId">admin</span></p>
                     </div>
                     <span class="tag chip-blue">超级权限</span>
                 </div>
@@ -102,7 +102,7 @@
                     </div>
                     <div class="cell-label">
                         <span class="block text-sm">账号与密码</span>
-                        <span id="accountStatusText" class="block text-xs text-tip mt-0.5">当前账号：NaHS</span>
+                        <span id="accountStatusText" class="block text-xs text-tip mt-0.5">当前账号：admin</span>
                     </div>
                     <i class="fas fa-chevron-right chevron"></i>
                 </div>
@@ -111,7 +111,7 @@
                     <label class="form-label" style="margin: 0;">系统名称</label>
                     <p class="text-xs text-tip">用于首页顶部展示，建议填写项目或机房名称，方便区分多套系统。</p>
                     <div class="flex items-center gap-2">
-                        <input type="text" id="dashboardTitleInput" placeholder="OneNet物联网后台" class="input input-sm flex-1">
+                        <input type="text" id="dashboardTitleInput" placeholder="物联网后台" class="input input-sm flex-1">
                         <button onclick="saveDashboardTitle()" class="btn btn-primary btn-sm">保存</button>
                     </div>
                 </div>
@@ -180,25 +180,13 @@
             <h3 class="list-title flex items-center gap-1.5"><i class="fas fa-info-circle" style="font-size: 11px;"></i> 关于</h3>
             <div class="list">
                 <div class="cell">
-                    <div class="cell-label text-sm font-medium text-center">硫氢化钠开源物联网工具</div>
+                    <div class="cell-label text-sm font-medium text-center">物联网后台</div>
                 </div>
                 <div class="cell">
-                    <i class="fas fa-user-edit text-tip w-4 text-center text-sm"></i>
-                    <div class="cell-label text-sm text-sub">作者</div>
-                    <span class="cell-value">硫氢化钠</span>
+                    <i class="fas fa-tag text-tip w-4 text-center text-sm"></i>
+                    <div class="cell-label text-sm text-sub">版本</div>
+                    <span class="cell-value">1.0</span>
                 </div>
-                <a href="mailto:nahs.lql@outlook.com" class="cell">
-                    <i class="fas fa-envelope text-tip w-4 text-center text-sm"></i>
-                    <div class="cell-label text-sm text-sub">邮箱</div>
-                    <span class="cell-value text-accent">nahs.lql@outlook.com</span>
-                </a>
-                <a href="https://space.bilibili.com/549713964?spm_id_from=333.1007.0.0" target="_blank" class="cell">
-                    <i class="fab fa-bilibili text-tip w-4 text-center text-sm"></i>
-                    <div class="cell-label text-sm text-sub">B站主页</div>
-                    <div class="cell-value text-accent flex items-center gap-1">
-                        点击访问 <i class="fas fa-external-link-alt" style="font-size: 10px;"></i>
-                    </div>
-                </a>
                 <div class="cell" style="background: var(--warn-bg);">
                     <p class="text-xs" style="color: var(--warn); line-height: 1.7;">
                         <i class="fas fa-shield-alt mr-1"></i>
@@ -586,7 +574,7 @@
             const soundToggle = document.getElementById('toggle-sound');
             if (config.soundAlert !== undefined) soundToggle.checked = config.soundAlert;
 
-            document.getElementById('dashboardTitleInput').value = localStorage.getItem('iot_dashboard_title') || 'OneNet物联网后台';
+            document.getElementById('dashboardTitleInput').value = localStorage.getItem('iot_dashboard_title') || '物联网后台';
             document.getElementById('videoUrlInput').value = config.videoUrl || '';
             document.getElementById('videoTitleInput').value = localStorage.getItem('iot_video_title') || '实时监控';
 
@@ -617,7 +605,7 @@
             } else {
                 localStorage.removeItem('iot_dashboard_title');
                 showToast('已恢复默认标题');
-                input.value = 'OneNet物联网后台';
+                input.value = '物联网后台';
             }
         }
 
